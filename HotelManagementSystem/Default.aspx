@@ -5,6 +5,7 @@
     <main>
       <div><h1>Chaza Mohamad</h1>
           <h1>Ahmad Abdallah</h1>
+              <h1>Dima Ejel</h1>
       </div>
     </main>
 
