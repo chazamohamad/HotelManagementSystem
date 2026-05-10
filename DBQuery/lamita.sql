@@ -1,23 +1,4 @@
--- =========================================================
--- Task: Create ADD_ROOM_TYPE Procedure
--- =========================================================
--- Description:
--- Create a stored procedure named ADD_ROOM_TYPE in the HotelDB database.
---
--- The procedure should insert a new record into the ROOM_TYPES table.
---
--- Input Parameters:
--- - TYPE_NAME: Name of the room type
--- - DESCRIPTION: Description of the room
--- - BASE_PRICE: Base price of the room (must not be negative)
--- - MAX_GUESTS: Maximum number of guests (must be greater than 0)
--- - IMAGE_URL: Image path or URL
---
--- Notes:
--- - ROOM_TYPE_ID should NOT be provided manually.
--- - It must be generated automatically using a sequence.
--- - Validation is required for BASE_PRICE and MAX_GUESTS.
--- =========================================================
+--Task: Create a procedure to add a new room type with validation and automatic ID generation.
 
 CREATE OR REPLACE PROCEDURE ADD_ROOM_TYPE (
     P_TYPE_NAME     IN VARCHAR2,
@@ -63,31 +44,9 @@ EXCEPTION
         RAISE;
 END;
 /
-BEGIN
-    ADD_ROOM_TYPE(
-        'Deluxe Room',
-        'Nice room with sea view',
-        150,
-        2,
-        'image.jpg'
-    );
-END;
-/
 
--- Task: Create an Update User Procedure
--- 
--- Create a procedure in the HotelDB database named UPDATE_USER.
--- 
--- The procedure should update an existing user in the USERS table.
--- 
--- The procedure must accept the following input values:
--- USER_ID, USERNAME, EMAIL, FULL_NAME, PHONE, ROLE, and IS_ACTIVE.
--- 
--- When the procedure is executed, it should find the user using the given USER_ID.
--- 
--- Then, it should update the user details with the new values provided.
--- 
--- The procedure should save the changes after updating the user.
+-- Task: Create a procedure to update user information based on USER_ID.
+
 CREATE OR REPLACE PROCEDURE UPDATE_USER (
     P_USER_ID    IN NUMBER,
     P_USERNAME   IN VARCHAR2,
@@ -112,18 +71,5 @@ BEGIN
 
     COMMIT;
 
-END;
-/
-
-BEGIN
-    UPDATE_USER(
-        1,
-        'lamita',
-        'new@email.com',
-        'lamita sayed',
-        '12345678',
-        'Admin',
-        1
-    );
 END;
 /
