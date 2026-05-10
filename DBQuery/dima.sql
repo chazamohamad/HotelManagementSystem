@@ -71,6 +71,7 @@ BEGIN
 END;
 /
 
+--task4 create a procedure to update room details by id
 
 CREATE OR REPLACE PROCEDURE UPDATE_ROOM (
     P_ROOM_ID       IN NUMBER,
