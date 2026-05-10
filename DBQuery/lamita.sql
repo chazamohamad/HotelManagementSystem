@@ -63,6 +63,17 @@ EXCEPTION
         RAISE;
 END;
 /
+BEGIN
+    ADD_ROOM_TYPE(
+        'Deluxe Room',
+        'Nice room with sea view',
+        150,
+        2,
+        'image.jpg'
+    );
+END;
+/
+
 -- Task: Create an Update User Procedure
 -- 
 -- Create a procedure in the HotelDB database named UPDATE_USER.
@@ -101,5 +112,18 @@ BEGIN
 
     COMMIT;
 
+END;
+/
+
+BEGIN
+    UPDATE_USER(
+        1,
+        'lamita',
+        'new@email.com',
+        'lamita sayed',
+        '12345678',
+        'Admin',
+        1
+    );
 END;
 /
