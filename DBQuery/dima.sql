@@ -40,14 +40,6 @@ END;
 /
 
 
---run the function to get rooms of type 2
-
-VARIABLE RC REFCURSOR;
-
-EXEC :RC := GET_ROOMS_BY_TYPE(2);
-
-PRINT RC;
-
 
 
 
@@ -65,11 +57,7 @@ BEGIN
 END;
 /
 
---run the procedure to delete room type with id 1
-BEGIN
-    DELETE_ROOM_TYPE(1);
-END;
-/
+
 
 --task4 create a procedure to update room details by id
 
@@ -97,13 +85,3 @@ END;
 /
 
 
-BEGIN
-    UPDATE_ROOM(
-        3,
-        '106',
-        1,
-        2,
-        'Occupied'
-    );
-END;
-/
