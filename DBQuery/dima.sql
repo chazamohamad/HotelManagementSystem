@@ -40,14 +40,6 @@ END;
 /
 
 
---run the function to get rooms of type 2
-
-VARIABLE RC REFCURSOR;
-
-EXEC :RC := GET_ROOMS_BY_TYPE(2);
-
-PRINT RC;
-
 
 
 
@@ -65,26 +57,20 @@ BEGIN
 END;
 /
 
---run the procedure to delete room type with id 1
-BEGIN
-    DELETE_ROOM_TYPE(1);
-END;
-/
 
---task4 create a procedure to update room details and its related room type image
+
+--task4 create a procedure to update room details by id
 
 CREATE OR REPLACE PROCEDURE UPDATE_ROOM (
     P_ROOM_ID       IN NUMBER,
     P_ROOM_NUMBER   IN VARCHAR2,
     P_FLOOR_NUMBER  IN NUMBER,
     P_ROOM_TYPE_ID  IN NUMBER,
-    P_STATUS        IN VARCHAR2,
-    P_IMAGE_URL     IN VARCHAR2
+    P_STATUS        IN VARCHAR2
 )
 AS
 BEGIN
 
-    -- Update room details
     UPDATE ROOMS
     SET 
         ROOM_NUMBER = P_ROOM_NUMBER,
@@ -93,26 +79,9 @@ BEGIN
         STATUS = P_STATUS
     WHERE ROOM_ID = P_ROOM_ID;
 
-    -- Update related room type image
-    UPDATE ROOM_TYPES
-    SET IMAGE_URL = P_IMAGE_URL
-    WHERE ROOM_TYPE_ID = P_ROOM_TYPE_ID;
-
-    -- Save changes
     COMMIT;
 
 END;
 /
---run the procedure to update room details and its related room type image for room id 3
-BEGIN
-    UPDATE_ROOM(
-        3,
-        '105',
-        1,
-        2,
-        'Occupied',
-        '/images/new_double.jpg'
-    );
-END;
-/
+
 
