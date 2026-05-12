@@ -264,7 +264,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Pages\Admin\SidebarHeader\" />
-    <Folder Include="Pages\Customer\" />
+    <Folder Include="Pages\Customer\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
