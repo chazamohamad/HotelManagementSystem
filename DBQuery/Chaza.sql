@@ -33,7 +33,7 @@ JOIN ROOM_TYPES RT
 
 
 
---task2 : create a procedure to get rooms by room type id
+--task2 : create a procedure to add a new  room into the room table
 CREATE OR REPLACE PROCEDURE ADD_ROOM (
     P_ROOM_NUMBER   IN ROOMS.ROOM_NUMBER%TYPE,
     P_FLOOR_NUMBER  IN ROOMS.FLOOR_NUMBER%TYPE,
@@ -120,7 +120,7 @@ END;
 
 
 --task3 : create a function to validate user login
-CREATE OR REPLACE FUNCTION LOGIN_USER (
+CREATE OR REPLACE FUNCTION SIGN_IN_USER (
     P_USERNAME IN VARCHAR2,
     P_PASSWORD IN VARCHAR2
 )
@@ -144,9 +144,9 @@ BEGIN
 EXCEPTION
     WHEN OTHERS THEN
         RETURN 0;
-END LOGIN_USER;
+END SIGN_IN_USER;
 /
---SELECT LOGIN_USER('john_doe', 'customer123hash') AS LOGIN_RESULT FROM DUAL;
+--SELECT SIGN_IN_USER('john_doe', 'customer123hash') AS LOGIN_RESULT FROM DUAL;
 
 
 --task4 : create a procedure to delete a user by id
