@@ -208,7 +208,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
     <Folder Include="DBHelper\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
