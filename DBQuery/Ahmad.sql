@@ -1,3 +1,19 @@
+--task1:view (userView) :display the selected user information from the table of users.
+CREATE OR REPLACE VIEW UserView AS
+SELECT
+    USERNAME,
+    PASSWORD_HASH,
+    EMAIL,
+    FULL_NAME,
+    PHONE,
+    ROLE,
+    IS_ACTIVE,
+    CREATED_DATE
+FROM USERS;
+
+
+--task2: procedure(update_room_type):take as parameter the info of a room type .
+--And update an existing room type in the room_type table by these parameter where room_type_id is the same.
 CREATE OR REPLACE PROCEDURE UPDATE_ROOM_TYPE (
     ROOM_TYPE_ID IN ROOM_TYPES.ROOM_TYPE_ID%TYPE,
     TYPE_NAME    IN ROOM_TYPES.TYPE_NAME%TYPE,
@@ -20,4 +36,45 @@ BEGIN
     COMMIT;
 END;
 /
+
+--task3: function(register_user):
+--Take a new  user  as parameter, and insert it to the user table (and return true:if succeeded or false:if failed).
+CREATE OR REPLACE FUNCTION REGISTER_USER (
+USERNAME IN USERS.USERNAME%TYPE,
+PASSWORD_HASH IN USERS.PASSWORD_HASH%TYPE,
+EMAIL IN USERS.EMAIL%TYPE,
+FULL_NAME IN USERS.FULL_NAME%TYPE,
+PHONE IN USERS.PHONE%TYPE,
+ROLE IN USERS.ROLE%TYPE
+)
+RETURN BOOLEAN
+AS
+BEGIN
+INSERT INTO USERS (
+USER_ID,
+USERNAME,
+PASSWORD_HASH,
+EMAIL,
+FULL_NAME,
+PHONE,
+ROLE
+)
+VALUES (
+SEQ_USERS.NEXTVAL,
+REGISTER_USER.USERNAME,
+REGISTER_USER.PASSWORD_HASH,
+REGISTER_USER.EMAIL,
+REGISTER_USER.FULL_NAME,
+REGISTER_USER.PHONE,
+REGISTER_USER.ROLE
+);
  
+COMMIT;
+RETURN TRUE;
+ 
+EXCEPTION
+WHEN OTHERS THEN
+ROLLBACK;
+RETURN FALSE;
+END;
+/ 
