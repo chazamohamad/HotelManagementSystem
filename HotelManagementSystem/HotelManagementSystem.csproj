@@ -154,6 +154,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Admin\Dashboard\Default.aspx" />
+    <Content Include="Pages\Customer\Home\Default.aspx" />
+    <Content Include="Pages\Customer\MyBooking\Default.aspx" />
+    <Content Include="Pages\Customer\Rooms\Default.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\SignUp.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -224,6 +227,27 @@
     <Compile Include="Pages\Admin\Dashboard\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Customer\Home\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\Home\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\MyBooking\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\MyBooking\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\Rooms\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Customer\Rooms\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,7 +288,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Pages\Admin\SidebarHeader\" />
-    <Folder Include="Pages\Customer\Home\" />
+    <Folder Include="Pages\Customer\NavFooter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
